@@ -1,0 +1,22 @@
+- send a email/create a meeting time with Greg
+- need to make sure that Greg is good with our proposal
+	- did we include creating a heatmap in our proposal?
+
+- how do we interact with the user on what properties to use to create the heatmap
+- we need to make sure with Greg what type or property he is interested in us creating a heatmap for.
+	- from here we will gather items to 
+
+- introduction
+	- we need to be sharing and telling what question we will exactly be asking and answering in technically terms.
+	- then, how are we getting this info
+	
+
+- need to come up wihth a question for what type of heatmap exactly we need to create
+- what properties are required to create this heatmap
+
+- note a three dimentional heatmap if possible although two dimentional is main goal
+- need to update with platform for which to use.
+
+1. talk to greg
+2. get our question: what is the content of the heatmap which we are hoping to answer
+3. figure out what property or what kind of data we actually need to answer the question
