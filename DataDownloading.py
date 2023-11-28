@@ -5,6 +5,10 @@ import numpy as np
 
 
 opts = { 'platform': asf.SENTINEL1, 'processingLevel': asf.SLC}
+count = asf.search_count(**opts)
+print(count)
+
+opts['maxResults'] = 50 # limit our results for quicker experimentation
 
 result = asf.search(**opts)
 
