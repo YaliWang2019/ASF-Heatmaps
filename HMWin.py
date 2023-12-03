@@ -1,25 +1,27 @@
 import pandas as pd
+import geopandas as gpd #allows for world map overlay
+
 import numpy as np
 from PIL import Image
+
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
-import geopandas as gpd
+
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
-# Function to handle the "Exit" button
-def exit_program():
-    root.destroy()  # Close the main window
-
-# Function to handle the "Not Implemented" button
-def not_implemented():
-    messagebox.showinfo("Info", "This has yet to be implemented!")
-    root.destroy()  # Close the main window
+# -------------------------------------------------------------------
+# World Map Overlay
+# -------------------------------------------------------------------
 
 # Function to plot world map outline
 def plot_world_map(ax):
     world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
     world.plot(ax=ax, color='none', edgecolor='black', linewidth=1)
+
+# -------------------------------------------------------------------
+# Country Display function -- NEEDS WORK!
+# -------------------------------------------------------------------
 
 # Function to display a country on a world map
 #this needs some adjustments and pieces so right now, it is listed as not implemented when hit on the dialog...
@@ -33,6 +35,10 @@ def display_country(country_name):
 
     ax.set_title(country_name)
     plt.show()
+
+# -------------------------------------------------------------------
+# Heatmap Functions
+# -------------------------------------------------------------------
 
 # Heatmap() function for generating custom-colored heatmaps
 #this is for the custom heatmaps
@@ -88,6 +94,7 @@ def Heatmaps(grid_size, min_lat, max_lat, min_lon, max_lon):
     plt.savefig('heatmap_OverMap.png')
     plt.show()
 
+# -------------------------------------------------------------------
 # Full World Heatmap function
 def full_world_heatmap():
     # Read the CSV file with coordinate data
@@ -136,6 +143,23 @@ def full_world_heatmap():
     plt.savefig('heatmap_with_world_map.png')
     plt.show()
 
+# -------------------------------------------------------------------
+# User Interfacing Functions - Button Implements
+# -------------------------------------------------------------------
+
+# Function to handle the "Exit" button
+def exit_program():
+    root.destroy()  # Close the main window
+
+# Function to handle the "Not Implemented" button
+def not_implemented():
+    messagebox.showinfo("Info", "This has yet to be implemented!")
+    root.destroy()  # Close the main window
+
+# -------------------------------------------------------------------
+# User Infercaing Functions - Windows
+# -------------------------------------------------------------------
+
 # Function to create a custom dialog for selecting options
 def choose_option_dialog():
     dialog = tk.Toplevel()
@@ -161,6 +185,10 @@ def choose_option_dialog():
     btn_exit = tk.Button(dialog, text="Exit", command=exit_program)
     btn_exit.pack(pady=5)
 
+# -------------------------------------------------------------------
+# User Interfacing Functions - Heatmap generation with UI
+# -------------------------------------------------------------------
+
 # Function to handle the Display Country on World Map option
 def display_country_dialog(dialog):
     dialog.destroy()
@@ -179,6 +207,10 @@ def generate_heatmap_dialog(dialog):
     min_lon = simpledialog.askfloat("Input", "Enter the minimum longitude:")
     max_lon = simpledialog.askfloat("Input", "Enter the maximum longitude:")
     Heatmaps(grid_size, min_lat, max_lat, min_lon, max_lon)
+
+# -------------------------------------------------------------------
+# Window Creation with Tkinter
+# -------------------------------------------------------------------
 
 # Create a Tkinter window for user input
 root = tk.Tk()
