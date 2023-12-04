@@ -11,6 +11,17 @@ import tkinter as tk
 from tkinter import simpledialog, messagebox
 
 # -------------------------------------------------------------------
+# Things to adjust:
+# need to make sure that all heatmaps can revert back to the selection screen
+# maybe change the color of the oceans/water and ground (easier viewing)
+# need to find a way to adjust the heatmap from data to display at the right size for the selection
+# need to display the different overlap layers in different colors (as a genuine heatmap) with an accurate legend.
+# need to add in the option to sort the data by date and display the heatmap as well.
+# -------------------------------------------------------------------
+
+
+
+# -------------------------------------------------------------------
 # World Map Overlay
 # -------------------------------------------------------------------
 
@@ -48,7 +59,7 @@ def Heatmaps(grid_size, min_lat, max_lat, min_lon, max_lon):
 
     # Filter data based on user-provided latitude and longitude range
     filtered_df = df[(df['coordinate1_lat'] >= min_lat) & (df['coordinate1_lat'] <= max_lat) &
-                     (df['coordinate1_lon'] >= min_lon) & (df['coordinate1_lon'] <= max_lon)]
+                     (2*df['coordinate1_lon'] >= min_lon) & (2*df['coordinate1_lon'] <= max_lon)]
 
     # Process the filtered data to get a frequency map of coordinates
     coordinate_counts = filtered_df.groupby(['coordinate1_lat', 'coordinate1_lon']).size()
@@ -93,6 +104,8 @@ def Heatmaps(grid_size, min_lat, max_lat, min_lon, max_lon):
     # Save and show the image
     plt.savefig('heatmap_OverMap.png')
     plt.show()
+
+#NEED TO MAKE SURE THAT WHEN THIS FIGURE IS DONE, WE CAN EXIT THE PROGRAM!
 
 # -------------------------------------------------------------------
 # Full World Heatmap function
@@ -174,7 +187,7 @@ def choose_option_dialog():
     btn_country.pack(pady=5) #lambda: display_country_dialog(dialog) is what was used in command above
 
     # Button for Generate Heatmap
-    btn_heatmap = tk.Button(dialog, text="Generate Heatmap", command=lambda: generate_heatmap_dialog(dialog))
+    btn_heatmap = tk.Button(dialog, text="Generate Custom Heatmap", command=lambda: generate_heatmap_dialog(dialog))
     btn_heatmap.pack(pady=5)
 
     # Button for Full World Heatmap
@@ -207,6 +220,8 @@ def generate_heatmap_dialog(dialog):
     min_lon = simpledialog.askfloat("Input", "Enter the minimum longitude:")
     max_lon = simpledialog.askfloat("Input", "Enter the maximum longitude:")
     Heatmaps(grid_size, min_lat, max_lat, min_lon, max_lon)
+
+#NEED TO MAKE SURE THAT CUSTOM HEATMAP ALLOWS YOU TO GET BACK TO THE MAIN MENU OR EXITS THE PROGRAM ENTIRELY!!!
 
 # -------------------------------------------------------------------
 # Window Creation with Tkinter
