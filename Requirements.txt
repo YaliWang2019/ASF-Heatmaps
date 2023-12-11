@@ -1,0 +1,10 @@
+pandas==2.1.4
+geopandas==0.14.1
+shapely==2.0.2
+numpy==1.26.2
+Pillow
+matplotlib
+tk
+fsspec
+requests
+aiohttp

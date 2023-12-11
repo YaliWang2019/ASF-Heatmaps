@@ -59,6 +59,8 @@ def full_world_heatmap():
 
     # Convert the pandas DataFrame to a GeoPandas DataFrame
     gdf = gpd.GeoDataFrame(df)
+    # Define the number of divisions in the grid
+    divisions = 150
     # Define custom colors based on the number of data points
     colors = ['#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026']
     cmap = ListedColormap(colors)
