@@ -1,0 +1,56 @@
+On local machine (Jupyter Notebook):
+
+1. Read the entire CSV into a Pandas DataFrame: 
+Run 1: 
+CPU times: total: 11 s
+Wall time: 25.4 s
+
+2. Generate the full year 2022 heat map (this is fast because it's using a pre-filtered dataset):
+full_world_heatmap()
+Run 1: 
+CPU times: total: 3.94 s
+Wall time: 7.18 s
+
+3. Generate the 2022 world map using coordinates and dates from user input:
+Heatmaps("2022-01-01", "2022-01-30", 20, 60, 70, 140)
+Run 1:
+CPU times: total: 49.9 s
+Wall time: 2min 7s
+
+4. Generate the 2022 world map using coordinates and dates from user input:
+date_generate_heatmap("2022-01-01", "2022-01-30");
+CPU times: total: 51 s
+Wall time: 2min 41s
+
+5. Generate the 2022 heat map using country name from user input:
+display_country("United States of America", "2022-01-01", "2022-01-30")
+CPU times: total: 50.4 s
+Wall time: 2min 32s
+
+On Chinook HPC (Jupyter Notebook):
+
+1. Read the entire CSV into a Pandas DataFrame:
+CPU times: user 11.5 s, sys: 161 ms, total: 11.7 s
+Wall time: 11.7 s
+
+2. Generate the full year 2022 world map (this is fast because it's using a pre-filtered dataset):
+full_world_heatmap()
+
+CPU times: user 1.95 s, sys: 269 ms, total: 2.22 s
+Wall time: 1.69 s
+
+3. Generate the 2022 world map using coordinates and dates from user input:
+Heatmaps("2022-01-01", "2022-01-30", 20, 60, 70, 140)
+CPU times: user 36.8 s, sys: 307 ms, total: 37.1 s
+Wall time: 36.7 s
+
+
+4. Generate the 2022 world map using coordinates and dates from user input:
+date_generate_heatmap("2022-01-01", "2022-01-30")
+CPU times: user 35.3 s, sys: 261 ms, total: 35.6 s
+Wall time: 35.2 s
+
+5. Generate the 2022 heat map using country name from user input:
+display_country("United States of America", "2022-01-01", "2022-01-30")
+CPU times: user 36.8 s, sys: 255 ms, total: 37.1 s
+Wall time: 37.9 s
