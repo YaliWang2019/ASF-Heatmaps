@@ -277,6 +277,9 @@ def date_generate_heatmap(start_date, end_date):
     ax.set_xlabel("Longitude", fontsize=16)
     ax.set_ylabel("Latitude", fontsize=16)
 
+    # Add gridlines to the heatmap
+    ax.grid(which='both', linestyle='--', linewidth=0.5, color='gray')
+
     # Save and show the image
     plt.savefig('heatmap_with_world_map_specific_date.png')
     plt.show()
