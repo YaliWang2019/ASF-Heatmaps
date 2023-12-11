@@ -9,6 +9,7 @@ Using various APIs to pull databases from the Common Metadata Repository (CMR) i
 
 ### 1.3 Technology Used
 The data set is stored in Pandas DataFrame and GeoPandas DataFrame from the CSV file. All the data queries are done within the DataFrame objects. The technology used to engineer the ASF Heatmaps Program primarily includes the Python programming language utilizing its powerful libraries for data interpretation: Pandas, GeoPandas, NumPy, Matplotlib, and Shapely. In addition, the Tkinter GUI library was also used to create an interactive graphical user interface, allowing the user to request custom options.
+
 Pandas and GeoPandas libraries mainly store datasets in the form of DataFrame. The NumPy library processes vertically flipped data columns to make correct heatmaps using Matplotlib. We decided to use the Shapely library for geometric operations and shapes in geospatial applications rather than using PIL (Python Imaging Library). On the one hand, we are using the polygon property of the data set, which can be properly handled with shapely. geometry. On the other hand, we are counting the intersects of the polygons, which can be better implemented using shapely.geometry since it provides a higher-level abstraction for geometries, making it easier to work with complex shapes and perform spatial operations. Still, we kept the Pillow library for potential future implementations and improvements of this project. 
 
 ## 2 Requirements and Instructions
@@ -20,14 +21,19 @@ pip install -r Requirements.txt
 ```
 ### 2.2 Instructions
 In this project, the horizontal and vertical divisions of the spatial area of the generated heat map are both 150. Two CSV data sets are required to generate the heat map, coordinates_dates_2022.csv, and polygon_only_2022.csv, both of which are included in this repository. coordinates_dates_2022.csv contains records with beam mode IW for the whole year of 2022. Each record contains the longitude and latitude of five coordinates and the query time. The information contained in polygon_only_2022.csv is: after horizontally and vertically dividing the polygon formed by the five coordinates of each record of coordinates_dates_2022.csv, the number of intersecting polygons, and the query time.
+
 Once you have installed all the required libraries necessary to run the ASF Heatmaps Application, you can do so by running the Python script HM_Integrated.py through the following command, where you will be brought to the ASF Heatmaps Program’s user interface:
 ```
 python HM_Integrated.py
 ```
 In the user interface, you will be prompted to select an option from the following: Display a Country on World Map, Generate Custom Heatmap Using Dates, Generate Custom Heatmap Using Dates and Coordinates, Full World Heatmap, or Exit. 
+
 The choice of Display a Country on World Map prompts you to input the Country name, for example, United States of America. Then, the window will continue to prompt you to input the start date and end date of your query, both in YYYY-MM-DD format. After the user inputs these values, the program will use them to generate the required heat map. The heat map generation will take approximately half a minute to several minutes, depending on the machine's performance you are working on.
+
 Generate Custom Heatmap Using Dates button prompts you to input the start date and end date of your query, both in YYYY-MM-DD format. After the user inputs these values, the program will use them to generate the required heat map. The heat map generation will take approximately half a minute to several minutes, depending on the machine's performance you are working on.
+
 Generate Custom Heatmap Using Dates and Coordinates prompts you to input the start date and end date of your query, both in YYYY-MM-DD format. After taking the dates inputs, the window will prompt you to enter four coordinates: minimum latitude, maximum latitude, minimum longitude, and maximum longitude, which all can be integers or floats. After the user inputs these values, the program will use them to generate the required heat map. The heat map generation will take approximately half a minute to several minutes, depending on the machine's performance you are working on.
+
 Full World Heatmap produces a heatmap of the entire world. This button does not prompt you to enter any value; it uses the polygon_only_2022.csv to generate the heat map directly without going through the division work of the spatial area. Thus, it should be the fastest process, only taking seconds to generate the full-year heat map. 
 The Exit option simply terminates the ASF Heatmap Program.
 
